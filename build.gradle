@@ -1,0 +1,60 @@
+plugins {
+    id 'java'
+    id 'war'
+    id 'org.springframework.boot' version '2.7.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+}
+
+configurations.all{
+    exclude group: 'ch.qos.logback',  module: 'logback-classic'
+    exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+}
+
+group = 'com.bofa'
+version = '1.0.0'
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+war {
+    archiveFileName = 'demo-struts.war'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    implementation 'org.springframework.boot:spring-boot-starter-security'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    //providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
+    //providedRuntime 'org.apache.tomcat.embed:tomcat-embed-jasper:11.0.0-M6'
+    implementation 'javax.servlet:javax.servlet-api:4.0.1'
+    implementation group: 'javax.servlet.jsp', name: 'javax.servlet.jsp-api', version: '2.3.3'
+    implementation 'javax.servlet:jstl:1.2'
+
+    implementation group: 'org.ow2.asm', name: 'asm', version: '9.5'
+
+    implementation 'org.apache.struts:struts2-core:6.1.2'
+    implementation 'org.apache.struts:struts2-spring-plugin:6.1.2'
+    implementation 'org.apache.struts:struts2-json-plugin:6.1.2'
+
+    implementation ('org.apache.struts:struts2-convention-plugin:6.1.2') {
+        exclude  group: 'org.ow2.asm', module: 'asm'
+    }
+
+    //implementation 'org.springframework.boot:spring-boot-starter-actuator:2.7.11'
+    implementation 'com.jgeppert.struts2.jquery:struts2-jquery-plugin:4.0.3'
+    implementation 'com.jgeppert.struts2.jquery:struts2-jquery-grid-plugin:4.0.3'
+    implementation 'com.jgeppert.struts2.jquery:struts2-jquery-datatables-plugin:4.0.3'
+    implementation 'com.jgeppert.struts2.jquery:struts2-jquery-richtext-plugin:4.0.3'
+    implementation 'com.jgeppert.struts2.jquery:struts2-jquery-tree-plugin:4.0.3'
+    implementation('net.minidev:json-smart:2.4.10')
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
