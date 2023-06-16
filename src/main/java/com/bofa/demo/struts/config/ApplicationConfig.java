@@ -12,7 +12,7 @@ import javax.servlet.Filter;
 import java.util.Collections;
 
 @Configuration
-public class LegacyStrutsApplicationConfig implements WebMvcConfigurer {
+public class ApplicationConfig implements WebMvcConfigurer {
 
     private static final String[] STRUTS_RESOURCE_LOCATIONS = {"classpath:/template/"};
 

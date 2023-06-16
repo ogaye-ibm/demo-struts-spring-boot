@@ -14,7 +14,7 @@ import org.apache.struts2.convention.annotation.Result;
 })
 @Action(value = "/hello")
 @Result(name = "success", location = "/WEB-INF/content/result.jsp")
-public class HelloAction extends ActionSupport {
+public class LegacyHelloAction extends ActionSupport {
     private String language;
     private String helloMessage;
     private HelloMessageService helloMessageService = new HelloMessageService();
