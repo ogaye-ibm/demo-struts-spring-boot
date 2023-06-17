@@ -12,9 +12,11 @@ import javax.servlet.Filter;
 import java.util.Collections;
 
 @Configuration
-public class ApplicationConfig implements WebMvcConfigurer {
+public class ApplicationConfig { //implements WebMvcConfigurer {
 
-    private static final String[] STRUTS_RESOURCE_LOCATIONS = {"classpath:/template/"};
+   // private static final String[] STRUTS_RESOURCE_LOCATIONS = {"classpath:/template/"};
+    private static final String[] STRUTS_RESOURCE_LOCATIONS = {"classpath:/content/"};
+
 
     @Bean
     public FilterRegistrationBean<Filter> filterRegistration() {
@@ -29,10 +31,10 @@ public class ApplicationConfig implements WebMvcConfigurer {
         System.out.println("   ***** StrutsPrepareAndExecuteFilter registration completed!");
         return registration;
     }
-
+/*
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         registry.addResourceHandler("/struts/**")
                 .addResourceLocations(STRUTS_RESOURCE_LOCATIONS);
-    }
+    }*/
 }
