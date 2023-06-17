@@ -26,7 +26,7 @@ public class ApplicationConfig { //implements WebMvcConfigurer {
         registration.addUrlPatterns("*.html");
         registration.setDispatcherTypes(DispatcherType.REQUEST, DispatcherType.FORWARD);
         registration.setInitParameters(Collections.singletonMap("actionPackages", "com.bofa.demo.struts.action"));
-        registration.setInitParameters(Collections.singletonMap("devMode", "true"));
+        //registration.setInitParameters(Collections.singletonMap("devMode", "true"));
         registration.setName("LegacyStrutsApplicationRegistration");
         System.out.println("   ***** StrutsPrepareAndExecuteFilter registration completed!");
         return registration;
